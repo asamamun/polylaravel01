@@ -1,0 +1,351 @@
+Microsoft Windows [Version 10.0.19044.2130]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan breeze:install
+
+added 92 packages, and audited 93 packages in 53s
+
+20 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> build
+> vite build
+
+    vite v3.1.8 building for production...
+transforming...
+    ✓ 59 modules transformed.
+rendering chunks...
+    public/build/manifest.json             0.25 KiB
+public/build/assets/app.17ed6db1.css   22.27 KiB / gzip: 4.74 KiB
+public/build/assets/app.8b2c3400.js    129.09 KiB / gzip: 46.80 KiB
+
+   INFO  Breeze scaffolding installed successfully.
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate
+
+   INFO  Preparing database.
+
+  Creating migration table ................................................................................ 233ms DONE
+
+   INFO  Running migrations.
+
+  2014_10_12_000000_create_users_table .................................................................... 350ms DONE
+  2014_10_12_100000_create_password_resets_table .......................................................... 282ms DONE
+  2019_08_19_000000_create_failed_jobs_table .............................................................. 300ms DONE
+  2019_12_14_000001_create_personal_access_tokens_table ................................................... 432ms DONE
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate
+
+   INFO  Nothing to migrate.
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate
+
+   INFO  Running migrations.
+
+  2019_12_14_000001_create_personal_access_tokens_table ..................................................... 9ms FAIL
+
+   Illuminate\Database\QueryException
+
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'personal_access_tokens' already exists (SQL: create table `personal_access_tokens` (`id` bigint unsigned not null auto_increment primary key, `tokenable_type` varchar(255) not null, `tokenable_id` bigint unsigned not null, `name` varchar(255) not null, `token` varchar(64) not null, `abilities` text null, `last_used_at` timestamp null, `expires_at` timestamp null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')
+
+  at D:\xampp8110\htdocs\batch-laravel\polylaravel01\vendor\laravel\framework\src\Illuminate\Database\Connection.php:759
+    755▕         // If an exception occurs when attempting to run a query, we'll format the error
+    756▕         // message to include the bindings with SQL, which will make this exception a
+    757▕         // lot more helpful to the developer instead of just the database's errors.
+    758▕         catch (Exception $e) {
+  ➜ 759▕             throw new QueryException(
+    760▕                 $query, $this->prepareBindings($bindings), $e
+    761▕             );
+    762▕         }
+    763▕     }
+
+  1   D:\xampp8110\htdocs\batch-laravel\polylaravel01\vendor\laravel\framework\src\Illuminate\Database\Connection.php:544
+      PDOException::("SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'personal_access_tokens' already exists")
+
+  2   D:\xampp8110\htdocs\batch-laravel\polylaravel01\vendor\laravel\framework\src\Illuminate\Database\Connection.php:544
+      PDOStatement::execute()
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate
+
+   INFO  Running migrations.
+
+  2019_12_14_000001_create_personal_access_tokens_table ................................................... 400ms DONE
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate:refresh
+
+   INFO  Rolling back migrations.
+
+  2019_12_14_000001_create_personal_access_tokens_table ................................................... 172ms DONE
+  2019_08_19_000000_create_failed_jobs_table .............................................................. 100ms DONE
+  2014_10_12_100000_create_password_resets_table .......................................................... 175ms DONE
+  2014_10_12_000000_create_users_table .................................................................... 196ms DONE
+
+   INFO  Running migrations.
+
+  2014_10_12_000000_create_users_table .................................................................... 323ms DONE
+  2014_10_12_100000_create_password_resets_table .......................................................... 267ms DONE
+  2019_08_19_000000_create_failed_jobs_table .............................................................. 264ms DONE
+  2019_12_14_000001_create_personal_access_tokens_table ................................................... 451ms DONE
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan make:model Mouse -mcr
+
+   INFO  Model [D:\xampp8110\htdocs\batch-laravel\polylaravel01\app/Models/Mouse.php] created successfully.
+
+   INFO  Created migration [2022_10_15_112029_create_mice_table].
+
+   INFO  Controller [D:\xampp8110\htdocs\batch-laravel\polylaravel01\app/Http/Controllers/MouseController.php] created successfully.
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate
+
+   INFO  Running migrations.
+
+  2022_10_15_112029_create_mice_table ..................................................................... 274ms DONE
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate:status
+
+  Migration name ...................................................................................... Batch / Status
+  2014_10_12_000000_create_users_table ....................................................................... [1] Ran
+  2014_10_12_100000_create_password_resets_table ............................................................. [1] Ran
+  2019_08_19_000000_create_failed_jobs_table ................................................................. [1] Ran
+  2019_12_14_000001_create_personal_access_tokens_table ...................................................... [1] Ran
+  2022_10_15_112029_create_mice_table ........................................................................ [2] Ran
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate:rollback
+
+   INFO  Rolling back migrations.
+
+  2022_10_15_112029_create_mice_table ..................................................................... 185ms DONE
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate:rollback
+
+   INFO  Rolling back migrations.
+
+  2019_12_14_000001_create_personal_access_tokens_table ................................................... 128ms DONE
+  2019_08_19_000000_create_failed_jobs_table ............................................................... 84ms DONE
+  2014_10_12_100000_create_password_resets_table .......................................................... 157ms DONE
+  2014_10_12_000000_create_users_table .................................................................... 147ms DONE
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan migrate
+
+   INFO  Running migrations.
+
+  2014_10_12_000000_create_users_table .................................................................... 278ms DONE
+  2014_10_12_100000_create_password_resets_table .......................................................... 251ms DONE
+  2019_08_19_000000_create_failed_jobs_table .............................................................. 284ms DONE
+  2019_12_14_000001_create_personal_access_tokens_table ................................................... 461ms DONE
+  2022_10_15_112029_create_mice_table ..................................................................... 341ms DONE
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan make:model Student --all
+
+   INFO  Model [D:\xampp8110\htdocs\batch-laravel\polylaravel01\app/Models/Student.php] created successfully.
+
+   INFO  Factory [D:\xampp8110\htdocs\batch-laravel\polylaravel01\database/factories/StudentFactory.php] created successfully.
+
+   INFO  Created migration [2022_10_15_113242_create_students_table].
+
+   INFO  Seeder [D:\xampp8110\htdocs\batch-laravel\polylaravel01\database/seeders/StudentSeeder.php] created successfully.
+
+   INFO  Request [D:\xampp8110\htdocs\batch-laravel\polylaravel01\app/Http/Requests/StoreStudentRequest.php] created successfully.
+
+   INFO  Request [D:\xampp8110\htdocs\batch-laravel\polylaravel01\app/Http/Requests/UpdateStudentRequest.php] created successfully.
+
+   INFO  Controller [D:\xampp8110\htdocs\batch-laravel\polylaravel01\app/Http/Controllers/StudentController.php] created successfully.
+
+   INFO  Policy [D:\xampp8110\htdocs\batch-laravel\polylaravel01\app/Policies/StudentPolicy.php] created successfully.
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    .env.example
+        modified:   app/Providers/RouteServiceProvider.php
+        modified:   composer.json
+        modified:   composer.lock
+        modified:   package.json
+        modified:   resources/css/app.css
+        modified:   resources/js/app.js
+        modified:   resources/views/welcome.blade.php
+        modified:   routes/web.php
+        modified:   vite.config.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app/Http/Controllers/Auth/
+        app/Http/Controllers/MouseController.php
+        app/Http/Controllers/StudentController.php
+        app/Http/Requests/
+        app/Models/Mouse.php
+        app/Models/Student.php
+        app/Policies/
+        app/View/
+        database/factories/StudentFactory.php
+        database/migrations/2022_10_15_112029_create_mice_table.php
+        database/migrations/2022_10_15_113242_create_students_table.php
+        database/seeders/StudentSeeder.php
+        package-lock.json
+        postcss.config.js
+        resources/views/auth/
+        resources/views/components/
+        resources/views/dashboard.blade.php
+        resources/views/layouts/
+        routes/auth.php
+        tailwind.config.js
+        tests/Feature/Auth/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>git add .
+warning: in the working copy of 'composer.lock', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/css/app.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/js/app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'routes/web.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vite.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/Auth/AuthenticatedSessionController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/Auth/ConfirmablePasswordController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/Auth/EmailVerificationNotificationController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/Auth/EmailVerificationPromptController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/Auth/NewPasswordController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/Auth/PasswordResetLinkController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/Auth/RegisteredUserController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/Auth/VerifyEmailController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/MouseController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Controllers/StudentController.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Requests/Auth/LoginRequest.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Requests/StoreStudentRequest.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Http/Requests/UpdateStudentRequest.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Models/Mouse.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Models/Student.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/Policies/StudentPolicy.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/View/Components/AppLayout.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/View/Components/GuestLayout.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'database/factories/StudentFactory.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'database/migrations/2022_10_15_112029_create_mice_table.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'database/migrations/2022_10_15_113242_create_students_table.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'database/seeders/StudentSeeder.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'postcss.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/auth/confirm-password.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/auth/forgot-password.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/auth/login.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/auth/register.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/auth/reset-password.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/auth/verify-email.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/application-logo.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/auth-card.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/auth-session-status.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/dropdown-link.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/dropdown.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/input-error.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/input-label.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/nav-link.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/primary-button.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/responsive-nav-link.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/components/text-input.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/dashboard.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/layouts/app.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/layouts/guest.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resources/views/layouts/navigation.blade.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'routes/auth.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tailwind.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/Feature/Auth/AuthenticationTest.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/Feature/Auth/EmailVerificationTest.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/Feature/Auth/PasswordConfirmationTest.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/Feature/Auth/PasswordResetTest.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/Feature/Auth/RegistrationTest.php', LF will be replaced by CRLF the next time Git touches it
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>git commit -m "migrations and model example"
+[master 3e25a82] migrations and model example
+ 62 files changed, 4409 insertions(+), 69 deletions(-)
+ delete mode 100644 .env.example
+ create mode 100644 app/Http/Controllers/Auth/AuthenticatedSessionController.php
+ create mode 100644 app/Http/Controllers/Auth/ConfirmablePasswordController.php
+ create mode 100644 app/Http/Controllers/Auth/EmailVerificationNotificationController.php
+ create mode 100644 app/Http/Controllers/Auth/EmailVerificationPromptController.php
+ create mode 100644 app/Http/Controllers/Auth/NewPasswordController.php
+ create mode 100644 app/Http/Controllers/Auth/PasswordResetLinkController.php
+ create mode 100644 app/Http/Controllers/Auth/RegisteredUserController.php
+ create mode 100644 app/Http/Controllers/Auth/VerifyEmailController.php
+ create mode 100644 app/Http/Controllers/MouseController.php
+ create mode 100644 app/Http/Controllers/StudentController.php
+ create mode 100644 app/Http/Requests/Auth/LoginRequest.php
+ create mode 100644 app/Http/Requests/StoreStudentRequest.php
+ create mode 100644 app/Http/Requests/UpdateStudentRequest.php
+ create mode 100644 app/Models/Mouse.php
+ create mode 100644 app/Models/Student.php
+ create mode 100644 app/Policies/StudentPolicy.php
+ create mode 100644 app/View/Components/AppLayout.php
+ create mode 100644 app/View/Components/GuestLayout.php
+ create mode 100644 database/factories/StudentFactory.php
+ create mode 100644 database/migrations/2022_10_15_112029_create_mice_table.php
+ create mode 100644 database/migrations/2022_10_15_113242_create_students_table.php
+ create mode 100644 database/seeders/StudentSeeder.php
+ create mode 100644 package-lock.json
+ create mode 100644 postcss.config.js
+ create mode 100644 resources/views/auth/confirm-password.blade.php
+ create mode 100644 resources/views/auth/forgot-password.blade.php
+ create mode 100644 resources/views/auth/login.blade.php
+ create mode 100644 resources/views/auth/register.blade.php
+ create mode 100644 resources/views/auth/reset-password.blade.php
+ create mode 100644 resources/views/auth/verify-email.blade.php
+ create mode 100644 resources/views/components/application-logo.blade.php
+ create mode 100644 resources/views/components/auth-card.blade.php
+ create mode 100644 resources/views/components/auth-session-status.blade.php
+ create mode 100644 resources/views/components/dropdown-link.blade.php
+ create mode 100644 resources/views/components/dropdown.blade.php
+ create mode 100644 resources/views/components/input-error.blade.php
+ create mode 100644 resources/views/components/input-label.blade.php
+ create mode 100644 resources/views/components/nav-link.blade.php
+ create mode 100644 resources/views/components/primary-button.blade.php
+ create mode 100644 resources/views/components/responsive-nav-link.blade.php
+ create mode 100644 resources/views/components/text-input.blade.php
+ create mode 100644 resources/views/dashboard.blade.php
+ create mode 100644 resources/views/layouts/app.blade.php
+ create mode 100644 resources/views/layouts/guest.blade.php
+ create mode 100644 resources/views/layouts/navigation.blade.php
+ create mode 100644 routes/auth.php
+ create mode 100644 tailwind.config.js
+ create mode 100644 tests/Feature/Auth/AuthenticationTest.php
+ create mode 100644 tests/Feature/Auth/EmailVerificationTest.php
+ create mode 100644 tests/Feature/Auth/PasswordConfirmationTest.php
+ create mode 100644 tests/Feature/Auth/PasswordResetTest.php
+ create mode 100644 tests/Feature/Auth/RegistrationTest.php
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>git push
+Enumerating objects: 115, done.
+Counting objects: 100% (115/115), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (85/85), done.
+Writing objects: 100% (89/89), 47.60 KiB | 1.54 MiB/s, done.
+Total 89 (delta 25), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (25/25), completed with 11 local objects.
+To https://github.com/asamamun/polylaravel01.git
+   0b7583e..3e25a82  master -> master
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>php artisan make:model Test -mc
+
+   INFO  Model [D:\xampp8110\htdocs\batch-laravel\polylaravel01\app/Models/Test.php] created successfully.
+
+   INFO  Created migration [2022_10_15_114153_create_tests_table].
+
+   INFO  Controller [D:\xampp8110\htdocs\batch-laravel\polylaravel01\app/Http/Controllers/TestController.php] created successfully.
+
+
+D:\xampp8110\htdocs\batch-laravel\polylaravel01>
