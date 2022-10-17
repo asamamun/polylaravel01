@@ -67,6 +67,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{url('contact')}}" tabindex="-1" aria-disabled="true">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('php')}}" tabindex="-1" aria-disabled="true">PHP</a>
+          </li>
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

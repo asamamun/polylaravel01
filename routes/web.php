@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhpController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PricingController;
 
@@ -18,6 +19,8 @@ Route::get('/', function () {   return view('home'); });
 Route::get('/about', function () {   return view('about'); });
 Route::get('/product', function () {   return view('products'); });
 Route::get('/contact', function () {   return view('contacts'); });
+Route::get('/php', [ PhpController  ::class, 'text']);
+Route::get('/add', [ PhpController  ::class, 'add']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
